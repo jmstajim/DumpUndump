@@ -1,8 +1,18 @@
 # DumpUndump
 #### [Dump 🧾] → [Edit 🤖✍️] → [Undump 📁] → [Repeat 🔁]
-A macOS app to flatten your project’s text files into a single dump.txt and apply edits back.
+Meet DumpUndump — a macOS app that turns your project into one readable file and applies changes back. The dump format is AI-optimized for clean, predictable context.
 
 <img width="1311" height="1022" alt="Screenshot 2025-09-03 at 23 05 32" src="https://github.com/user-attachments/assets/02e29cae-c3c7-4fe2-bdce-999c8c750bdd" />
+
+## Why you’ll like it:
+
+🤖 AI-friendly layout — stable section markers & deterministic structure
+📏 Precomputed stats — per-file bytes/lines/hashes + a manifest & TOC
+🎯 Flexible include/exclude (globs) + folder ignores
+⚡ Auto-reload & Auto-apply when the dump file changes
+🧩 One-click presets for different stacks
+✂️ Skips large/binary files
+🧪 Dry-run mode + optional .bak backups
 
 ## Workflow
 1.	Pick Root Folder
