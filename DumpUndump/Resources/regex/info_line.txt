@@ -1,0 +1,13 @@
+^EXT:\s.*$
+^FORMAT:\s.*$
+^BYTES:\s.*$
+^LINES:\s.*$
+^HASH:\s.*$
+^ENC:\s.*$
+^CONTENT_BYTES:\s.*$
+^EOL:\s.*$
+^ENC_DEFAULT:\s.*$
+^NFC:\s.*$
+^CHUNK:\s*\d+/\d+\s*$
+^CHUNK_BYTES:\s*\d+\s*$
+
