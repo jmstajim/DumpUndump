@@ -6,13 +6,13 @@ Meet DumpUndump — a macOS app that turns your project into one readable file a
 
 ## Why you’ll like it:
 
-🤖 AI-friendly layout — stable section markers & deterministic structure
-📏 Precomputed stats — per-file bytes/lines/hashes + a manifest & TOC
-🎯 Flexible include/exclude (globs) + folder ignores
-⚡ Auto-reload & Auto-apply when the dump file changes
-🧩 One-click presets for different stacks
-✂️ Skips large/binary files
-🧪 Dry-run mode + optional .bak backups
+- 🤖 AI-friendly layout — stable section markers & deterministic structure
+- 📏 Precomputed stats — per-file bytes/lines/hashes + a manifest & TOC
+- 🎯 Flexible include/exclude (globs) + folder ignores
+- ⚡ Auto-reload & Auto-apply when the dump file changes
+- 🧩 One-click presets for different stacks
+- ✂️ Skips large/binary files
+- 🧪 Dry-run mode + optional .bak backups
 
 ## Workflow
 1.	Pick Root Folder
