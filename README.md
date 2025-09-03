@@ -8,7 +8,8 @@ A macOS app to flatten your project’s text files into a single dump.txt and ap
 1.	Pick Root Folder
 2.	Make Dump
 3.	Send dump + prompt (included) to your LLM
-4.	Load the AI-edited dump into Undump and apply
+4.	Load the AI-edited dump into Undump and apply section
+5.	Undump
 
 ## License
 
