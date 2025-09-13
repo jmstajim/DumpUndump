@@ -14,11 +14,12 @@ OUTPUT RULES:
 - Do not perform escaping/unescaping within file contents; keep backslashes as-is.
 - Treat everything between code fences as immutable: do not normalize escape sequences and do not modify backslashes.
 - Paths must be strictly relative, with no leading “/” and no “..”, and must match the structure of the original dump.
-- Order sections alphabetically by PATH.
+- Order sections alphabetically by PATH. Number files consecutively (starting at 0001). The exact number is not important, but it must be unique and paired with a matching END tag.
 - If there are NO changes—create an empty dump.txt (0 bytes) and return only the link.
 - Deletions: to delete a file, output its section with an empty code body. (Otherwise, do not perform deletions.)
 - You may add new files—just output sections for them.
-- If triple backticks ``` appear inside the content, fence the content with four backticks or use tildes `~~~`.
+- If triple backticks ``` appear inside the content, fence the content with four backticks or use tildes `~~~`. Prefer `~~~` when editing Markdown with many backticks.
+- Do not include binary assets (images, archives, etc.) in dump.txt. Reference them by path only.
 
 FILE SECTION FORMAT:
 <<<FILE #0001>>>
@@ -31,4 +32,4 @@ PATH: relative/path/to/File.ext
 VALIDATION BEFORE OUTPUT:
 — No sections for files without changes; no absolute or upward (“..”) paths; every file ends with a newline.
 — Verify that all literal sequences `\n` in file bodies remain exactly two characters U+005C (`\`) and U+006E (`n`).
-
+— Ensure PATH ordering is strictly alphabetical and that each <<<FILE #...>>> has a matching <<<END FILE #...>>>.
