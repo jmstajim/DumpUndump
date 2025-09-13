@@ -47,6 +47,8 @@ struct MainView: View {
                 )
             }
             .listStyle(.sidebar)
+            .scrollContentBackground(.hidden)
+            .background(Theme.windowBackground)
             .headerProminence(.increased)
             .navigationTitle("DumpUndump")
             .frame(minWidth: 260)
