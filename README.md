@@ -9,7 +9,7 @@
 
 Meet DumpUndump — a macOS app that turns your project into one readable file and applies changes back. The dump format is AI-optimized for clean, predictable context.
 
-<img width="1311" height="1022" alt="Screenshot 2025-09-03 at 23 05 32" src="https://github.com/user-attachments/assets/02e29cae-c3c7-4fe2-bdce-999c8c750bdd" />
+<img width="1311" height="1022" alt="Screenshot 2025-09-03 at 23 05 32" src="https://github.com/user-attachments/assets/bb13018f-f4f4-4d7b-9d4c-cd9d14c18c18" />
 
 ## Why you’ll like it:
 
