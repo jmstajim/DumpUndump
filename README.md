@@ -1,4 +1,4 @@
-# DumpUndump — LLM context packager for your project
+# DumpUndump — LLM context packager
 
 [![Version](https://img.shields.io/github/v/release/jmstajim/DumpUndump?sort=semver&display_name=tag&label=version&color=217DD1&style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/jmstajim/DumpUndump/latest/total?label=downloads&color=217DD1&style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
