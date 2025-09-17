@@ -1,11 +1,12 @@
-# DumpUndump
+# DumpUndump — LLM context packager for your project
 
 [![Version](https://img.shields.io/github/v/release/jmstajim/DumpUndump?sort=semver&display_name=tag&label=version&color=217DD1&style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/jmstajim/DumpUndump/latest/total?label=downloads&color=217DD1&style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
 [![macOS](https://img.shields.io/badge/platform-macOS-217DD1?logo=apple&style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
 [![Download](https://img.shields.io/badge/Download-DumpUndump.app.zip-217DD1?style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
 
-#### DumpUndump is a macOS app that converts your project into a single plain-text file for ChatGPT/LLM context. Send the snapshot to an LLM, download the edited file, then upload it back into DumpUndump to apply changes across the original folder structure. Perfect for large codebases and AI-assisted refactoring.
+Create a single-file, plain-text snapshot of your project that’s optimized for LLMs.
+Send the snapshot to an LLM, download the edited file, then upload it back into DumpUndump to apply changes across the original folder structure.
 
 <img width="1311" height="1022" alt="Screenshot 2025-09-03 at 23 05 32" src="https://github.com/user-attachments/assets/bb13018f-f4f4-4d7b-9d4c-cd9d14c18c18" />
 
