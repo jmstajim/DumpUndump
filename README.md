@@ -1,5 +1,9 @@
 # DumpUndump
+[![Latest release](https://img.shields.io/github/v/release/jmstajim/DumpUndump?display_name=tag&sort=semver&logo=github)](https://github.com/jmstajim/DumpUndump/releases/latest)
+[![Downloads (latest)](https://img.shields.io/github/downloads/jmstajim/DumpUndump/latest/total)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
+
 #### [Dump 🧾] → [Edit 🤖✍️] → [Undump 📁] → [Repeat 🔁]
+
 Meet DumpUndump — a macOS app that turns your project into one readable file and applies changes back. The dump format is AI-optimized for clean, predictable context.
 
 <img width="1311" height="1022" alt="Screenshot 2025-09-03 at 23 05 32" src="https://github.com/user-attachments/assets/02e29cae-c3c7-4fe2-bdce-999c8c750bdd" />
