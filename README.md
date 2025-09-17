@@ -1,9 +1,9 @@
 # DumpUndump
 
-[![Version](https://img.shields.io/github/v/release/jmstajim/DumpUndump?sort=semver&display_name=tag&label=version&color=59A2E5&style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest)
-[![Downloads](https://img.shields.io/github/downloads/jmstajim/DumpUndump/latest/total?label=downloads&color=59A2E5&style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
-[![macOS](https://img.shields.io/badge/platform-macOS-59A2E5?logo=apple&style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
-[![Download](https://img.shields.io/badge/Download-DumpUndump.app.zip-59A2E5?style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
+[![Version](https://img.shields.io/github/v/release/jmstajim/DumpUndump?sort=semver&display_name=tag&label=version&color=217DD1&style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/jmstajim/DumpUndump/latest/total?label=downloads&color=217DD1&style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
+[![macOS](https://img.shields.io/badge/platform-macOS-217DD1?logo=apple&style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
+[![Download](https://img.shields.io/badge/Download-DumpUndump.app.zip-217DD1?style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
 
 #### [Dump 🧾] → [Edit 🤖✍️] → [Undump 📁] → [Repeat 🔁]
 
