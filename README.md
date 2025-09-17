@@ -5,11 +5,7 @@
 [![macOS](https://img.shields.io/badge/platform-macOS-217DD1?logo=apple&style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
 [![Download](https://img.shields.io/badge/Download-DumpUndump.app.zip-217DD1?style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
 
-#### [Dump 🧾] → [Edit 🤖✍️] → [Undump 📁] → [Repeat 🔁]
-
-DumpUndump is a macOS app that converts your project into a single plain-text file for ChatGPT/LLM context.
-Send the snapshot to an LLM, download the edited file, then upload it back into DumpUndump to apply changes across the original folder structure.
-Perfect for large codebases and AI-assisted refactoring.
+#### DumpUndump is a macOS app that converts your project into a single plain-text file for ChatGPT/LLM context. Send the snapshot to an LLM, download the edited file, then upload it back into DumpUndump to apply changes across the original folder structure. Perfect for large codebases and AI-assisted refactoring.
 
 <img width="1311" height="1022" alt="Screenshot 2025-09-03 at 23 05 32" src="https://github.com/user-attachments/assets/bb13018f-f4f4-4d7b-9d4c-cd9d14c18c18" />
 
@@ -23,7 +19,7 @@ Perfect for large codebases and AI-assisted refactoring.
 - ✂️ Skips large/binary files
 - 🧪 Dry-run mode + optional .bak backups
 
-## Workflow
+## Workflow: Dump🧾→Edit🤖✍️→Undump📁→Repeat🔁
 1.	Pick Root Folder
 2.	Make Dump
 3.	Send dump + prompt (included) to your LLM
