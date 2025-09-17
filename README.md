@@ -1,6 +1,6 @@
 # DumpUndump
 [![Latest release](https://img.shields.io/github/v/release/jmstajim/DumpUndump?display_name=tag&sort=semver&logo=github)](https://github.com/jmstajim/DumpUndump/releases/latest)
-[![Downloads (latest)](https://img.shields.io/github/downloads/jmstajim/DumpUndump/latest/total)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
+[![Downloads](https://img.shields.io/github/downloads/jmstajim/DumpUndump/total?label=Downloads)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
 
 #### [Dump 🧾] → [Edit 🤖✍️] → [Undump 📁] → [Repeat 🔁]
 
