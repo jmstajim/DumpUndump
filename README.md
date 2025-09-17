@@ -1,15 +1,13 @@
-# DumpUndump 
-[![Version](https://img.shields.io/github/v/release/jmstajim/DumpUndump?sort=semver&display_name=tag&label=Version&color=59A2E5&style=for-the-badge)](https://github.com/jmstajim/DumpUndump/releases/latest)
-[![Downloads](https://img.shields.io/github/downloads/jmstajim/DumpUndump/latest/total?label=Downloads&color=59A2E5&style=for-the-badge)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
-[![macOS](https://img.shields.io/badge/Platform-macOS-59A2E5?logo=apple&style=for-the-badge)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
-[![Download](https://img.shields.io/badge/Download-DumpUndump.app.zip-59A2E5?style=for-the-badge)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
+# DumpUndump
+
+[![Version](https://img.shields.io/github/v/release/jmstajim/DumpUndump?sort=semver&display_name=tag&label=version&color=59A2E5&style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/jmstajim/DumpUndump/latest/total?label=downloads&color=59A2E5&style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
+[![macOS](https://img.shields.io/badge/platform-macOS-59A2E5?logo=apple&style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
+[![Download](https://img.shields.io/badge/Download-DumpUndump.app.zip-59A2E5?style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
 
 #### [Dump 🧾] → [Edit 🤖✍️] → [Undump 📁] → [Repeat 🔁]
 
 Meet DumpUndump — a macOS app that turns your project into one readable file and applies changes back. The dump format is AI-optimized for clean, predictable context.
-
-
-
 
 <img width="1311" height="1022" alt="Screenshot 2025-09-03 at 23 05 32" src="https://github.com/user-attachments/assets/02e29cae-c3c7-4fe2-bdce-999c8c750bdd" />
 
