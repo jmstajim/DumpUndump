@@ -10,6 +10,18 @@ Upload the snapshot to an LLM, download the edited file, then re-import it into 
 
 <img width="1311" height="1022" alt="Screenshot 2025-09-03 at 23 05 32" src="https://github.com/user-attachments/assets/bb13018f-f4f4-4d7b-9d4c-cd9d14c18c18" />
 
+## Download & Installation
+
+Quick start: [download latest (DumpUndump.app.zip)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip) · [All releases](https://github.com/jmstajim/DumpUndump/releases)
+
+	1.	Download DumpUndump.app.zip from the link above.
+	2.	Double-click the ZIP to extract DumpUndump.app.
+	3.	Drag DumpUndump.app into your Applications folder (or run it from anywhere).
+
+If you see a security prompt: System Settings → Privacy & Security → Open Anyway.
+
+Update: download the new DumpUndump.app.zip, extract, and replace the app in Applications.
+
 ## Why you’ll like it:
 
 - 🤖 AI-friendly layout — stable section markers & deterministic structure
