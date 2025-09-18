@@ -33,11 +33,11 @@ Update: download the new DumpUndump.app.zip, extract, and replace the app in App
 - 🧪 Dry-run mode + optional .bak backups
 
 ## Workflow: Dump🧾→Edit🤖✍️→Undump📁→Repeat🔁
-1.	Pick Root Folder
-2.	Make Dump
-3.	Send dump + prompt (included) to your LLM
-4.	Load the AI-edited dump into Undump and apply section
-5.	Undump
+	1.	Pick Root Folder
+	2.	Make Dump
+	3.	Send dump + prompt (included) to your LLM
+	4.	Load the AI-edited dump into Undump and apply section
+	5.	Undump
 
 ## License
 
