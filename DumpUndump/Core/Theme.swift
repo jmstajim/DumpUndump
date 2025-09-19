@@ -46,8 +46,6 @@ struct FormCard: ViewModifier {
                     .stroke(Color.black.opacity(0.08), lineWidth: 0.5)
                     .blendMode(.overlay)
             )
-            .shadow(color: .black.opacity(0.12), radius: 14, x: 0, y: 8)
-            .shadow(color: .black.opacity(0.06), radius: 4, x: 0, y: 1)
     }
 }
 

@@ -13,15 +13,9 @@ struct DumpDetailView: View {
     var body: some View {
         VStack(spacing: 8) {
             HighlightingTextView(text: $dumpText)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 8, style: .continuous)
-                        .stroke(Color.gray.opacity(0.3), lineWidth: 1)
-                )
-                .padding(.bottom, 4)
         }
-        .padding()
         .toolbar {
-            ToolbarItemGroup(placement: .destructiveAction) {
+            ToolbarItemGroup(placement: .navigation) {
                 Button(action: onCopy) {
                     Label("Copy", systemImage: "clipboard")
                 }
@@ -42,8 +36,10 @@ struct DumpDetailView: View {
                 Text("Dump contents")
                     .font(.caption)
                     .foregroundStyle(.secondary)
+                    .padding(.horizontal, 16)
                 Text("\(lines) ln • \(sizeString)")
                     .font(.caption)
+                    .padding(.trailing, 16)
             }
             ToolbarItemGroup(placement: .primaryAction) {
                 Button(role: .destructive, action: onClear) {
