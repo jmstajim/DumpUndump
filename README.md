@@ -8,7 +8,7 @@ Upload the snapshot to an LLM, download the edited file, then re-import it into 
 [![macOS](https://img.shields.io/badge/platform-macOS-217DD1?logo=apple&style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
 [![Download](https://img.shields.io/badge/Download-DumpUndump.app.zip-217DD1?style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
 
-<img width="1311" height="1022" alt="Screenshot 2025-09-03 at 23 05 32" src="https://github.com/user-attachments/assets/bb13018f-f4f4-4d7b-9d4c-cd9d14c18c18" />
+<img width="1280" height="1058" alt="Screenshot 2025-09-20 at 01 45 26 Large" src="https://github.com/user-attachments/assets/b4e6e207-e0b4-442e-bad0-3316d8809ba7" />
 
 ## Download & Installation
 
