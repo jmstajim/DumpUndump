@@ -69,12 +69,6 @@ enum Dump {
 
             <<<FILE #\(String(format: "%04d", index))>>>
             PATH: \(rel)
-            EXT: \(ext.isEmpty ? "-" : ext)
-            BYTES: \(data.count)
-            LINES: \(linesCount)
-            HASH: \(hash)
-            ENC: \(enc)
-            CONTENT_BYTES: \(contentBytes)
             ```\(fenceLang)
             \(bodyString)
             ```
