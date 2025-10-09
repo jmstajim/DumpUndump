@@ -54,4 +54,3 @@ extension View {
         modifier(FormCard(padding: padding))
     }
 }
-

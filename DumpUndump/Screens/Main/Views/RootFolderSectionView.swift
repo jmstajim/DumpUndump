@@ -37,4 +37,3 @@ struct RootFolderSectionView: View {
 #Preview {
     RootFolderSectionView(path: "", onPick: {})
 }
-

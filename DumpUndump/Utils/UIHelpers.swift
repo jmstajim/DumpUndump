@@ -30,4 +30,3 @@ enum FilePanel {
         return p.runModal() == .OK ? p.url : nil
     }
 }
-

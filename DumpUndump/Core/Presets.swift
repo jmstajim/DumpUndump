@@ -139,5 +139,3 @@ enum OptionsPreset: String, CaseIterable, Identifiable {
         }
     }
 }
-
-

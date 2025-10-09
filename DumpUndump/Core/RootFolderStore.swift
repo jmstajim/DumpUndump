@@ -36,4 +36,3 @@ enum RootFolderStore {
         UserDefaults.standard.removeObject(forKey: key)
     }
 }
-

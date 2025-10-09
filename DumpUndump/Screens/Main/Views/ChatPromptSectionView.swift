@@ -42,4 +42,3 @@ struct ChatPromptSectionView: View {
 #Preview {
     ChatPromptSectionView(onCopy: {})
 }
-

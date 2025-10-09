@@ -228,4 +228,3 @@ final class MainViewModel: ObservableObject {
 }
 
 struct AppErrorAlert: Identifiable { let id = UUID(); let message: String }
-

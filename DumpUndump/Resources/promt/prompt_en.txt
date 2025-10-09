@@ -22,12 +22,12 @@ OUTPUT RULES:
 - Do not include binary assets (images, archives, etc.) in dump.txt. Reference them by path only.
 
 FILE SECTION FORMAT:
-<<<FILE #0001>>>
+<<<FILE #1>>>
 PATH: relative/path/to/File.ext
 ```
 <full file contents after changes>
 ```
-<<<END FILE #0001>>>
+<<<END FILE #1>>>
 
 VALIDATION BEFORE OUTPUT:
 — No sections for files without changes; no absolute or upward (“..”) paths; every file ends with a newline.

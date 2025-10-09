@@ -3,4 +3,3 @@ extension NSTextStorage {
     typealias EditActions = NSTextStorageEditActions
 }
 #endif
-

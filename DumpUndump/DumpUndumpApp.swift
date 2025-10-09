@@ -10,4 +10,3 @@ struct DumpUndumpApp: App {
         .windowToolbarStyle(.unified)
     }
 }
-

@@ -29,4 +29,3 @@ enum DumpFileStore {
         UserDefaults.standard.removeObject(forKey: key)
     }
 }
-

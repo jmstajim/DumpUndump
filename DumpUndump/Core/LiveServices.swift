@@ -59,4 +59,3 @@ struct ISODateStampProvider: DateStampProvider {
         return iso.string(from: Date()).replacingOccurrences(of: ":", with: "-")
     }
 }
-

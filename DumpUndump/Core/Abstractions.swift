@@ -42,4 +42,3 @@ protocol FileChangeWatcher {
     func start(url: URL, onChange: @escaping () -> Void)
     func stop()
 }
-

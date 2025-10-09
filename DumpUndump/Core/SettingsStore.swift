@@ -18,4 +18,3 @@ enum SettingsStore {
         UserDefaults.standard.removeObject(forKey: key)
     }
 }
-

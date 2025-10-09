@@ -94,4 +94,3 @@ struct DumpSectionView: View {
 
     DumpSectionView(selectedPreset: $selectedPreset, options: $options, isWorking: false, dumpReport: "", isGenerateDisabled: true, applyPreset: {}, saveOptions: {}, resetOptions: {}, generateDump: {})
 }
-

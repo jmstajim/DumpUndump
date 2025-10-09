@@ -99,4 +99,3 @@ struct FileFilter {
         return Double(control) / Double(max(total,1)) < 0.30
     }
 }
-

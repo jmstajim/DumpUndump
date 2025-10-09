@@ -94,4 +94,3 @@ struct UndumpSectionView: View {
     @Previewable @State var autoApply = true
     UndumpSectionView(dryRun: $dryRun, makeBackups: $makeBackups, autoLoadDump: $autoLoadDump, autoApply: $autoApply, selectedDumpPath: "/Users/me/file.txt", hasSelectedDump: true, loadFromSelected: {}, pickDumpFile: {}, clearSelectedDump: {}, loadDumpFromFile: {}, applyDumpToFolder: {}, isApplyDisabled: false, undumpReport: "")
 }
-
