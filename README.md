@@ -1,14 +1,13 @@
-# DumpUndump — LLM-optimized single-file snapshot of your project
+# DumpUndump — AI-optimized single-file project snapshot for macOS
 
-Create a single-file, plain-text snapshot of your project optimized for LLMs.
-Upload the snapshot to an LLM, download the edited file, then re-import it into DumpUndump to apply changes across the original folder structure.
+Turns your codebase into one readable dump and safely undumps AI-edited changes back (deterministic, LLM-friendly).
 
 [![Version](https://img.shields.io/github/v/release/jmstajim/DumpUndump?sort=semver&display_name=tag&label=version&color=217DD1&style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/jmstajim/DumpUndump/total?label=downloads&color=217DD1&style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
 [![macOS](https://img.shields.io/badge/platform-macOS-217DD1?logo=apple&style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
 [![Download](https://img.shields.io/badge/Download-DumpUndump.app.zip-217DD1?style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
 
-<img width="1280" height="1146" alt="Screenshot" src="https://github.com/user-attachments/assets/f48a4bc9-3efb-466d-8931-0825491e0826" />
+<img width="1280" height="1146" alt="Screenshot" src="https://github.com/user-attachments/assets/f48a4bc9-3efb-466d-8931-0825491e0826"/>
 
 ## Download & Installation
 
