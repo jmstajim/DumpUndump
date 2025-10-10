@@ -1,4 +1,4 @@
-#DumpUndump — LLM-optimized single-file project snapshot for macOS
+# DumpUndump — LLM-optimized single-file project snapshot for macOS
  
 Create a plain-text, LLM-ready snapshot of any project, send it to an AI for edits, then re-apply changes back to your files.
 
