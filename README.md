@@ -1,6 +1,6 @@
 # DumpUndump — LLM-optimized single-file project snapshot for macOS
  
-Create a plain-text, LLM-ready snapshot of any project, send it to an AI for edits, then re-apply changes back to your files.
+Create a plain-text, LLM-ready snapshot of any project, send it to your AI for edits, then re-apply changes back to your files.
 
 [![Version](https://img.shields.io/github/v/release/jmstajim/DumpUndump?sort=semver&display_name=tag&label=version&color=217DD1&style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/jmstajim/DumpUndump/total?label=downloads&color=217DD1&style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
