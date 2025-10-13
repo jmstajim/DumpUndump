@@ -47,7 +47,7 @@ enum Dump {
 
         var pairSections: [(Int, String)] = []
         var pairToc: [(Int, String)] = []
-        let headerToc = "\(col("INDEX", 7))  \(col("BYTES", 8))  \(col("LINES", 8))  \(col("EXT", 8))  RELATIVE_PATH"
+        let headerToc = "\(col("INDEX", 7))  \(col("BYTES", 8))  \(col("LINES", 8))  RELATIVE_PATH"
 
         DispatchQueue.concurrentPerform(iterations: files.count) { idx in
             let index = idx + 1

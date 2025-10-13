@@ -5,6 +5,7 @@ struct DumpDetailView: View {
     let isWorking: Bool
     let lines: Int
     let sizeString: String
+    let tokens: Int
     let onCopy: () -> Void
     let onCopyFile: () -> Void
     let onSave: () -> Void
@@ -33,13 +34,9 @@ struct DumpDetailView: View {
                 }
             }
             ToolbarItemGroup(placement: .status) {
-                Text("Dump contents")
+                Text("Dump contents   ≈ \(tokens) Tok  •  \(lines) Ln  •  \(sizeString)")
                     .font(.caption)
-                    .foregroundStyle(.secondary)
                     .padding(.horizontal, 16)
-                Text("\(lines) ln • \(sizeString)")
-                    .font(.caption)
-                    .padding(.trailing, 16)
             }
             ToolbarItemGroup(placement: .primaryAction) {
                 Button(role: .destructive, action: onClear) {

@@ -7,6 +7,7 @@ struct MainView: View {
     @State private var dumpLines: Int = 0
     @State private var dumpBytes: Int = 0
     @State private var dumpSizeString: String = ""
+    @State private var dumpTokens: Int = 0
     @State private var optionsSaveWork: DispatchWorkItem?
 
     var body: some View {
@@ -58,6 +59,7 @@ struct MainView: View {
                 isWorking: vm.isWorking,
                 lines: dumpLines,
                 sizeString: dumpSizeString,
+                tokens: dumpTokens,
                 onCopy: vm.copyDumpToClipboard,
                 onCopyFile: vm.copyDumpAsFileToPasteboard,
                 onSave: vm.saveDumpToFile,
@@ -90,10 +92,12 @@ struct MainView: View {
 
     private func updateDumpMetrics(_ text: String) {
         DispatchQueue.global(qos: .userInitiated).async {
+            let tokens = TokenCounter.estimateTokens(in: text)
             let bytes = text.utf8.count
             let lines = text.split(separator: "\n", omittingEmptySubsequences: false).count
             let size = ByteCountFormatter.string(fromByteCount: Int64(bytes), countStyle: .file)
             DispatchQueue.main.async {
+                dumpTokens = tokens
                 dumpBytes = bytes
                 dumpLines = lines
                 dumpSizeString = size
