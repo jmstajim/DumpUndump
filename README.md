@@ -7,7 +7,7 @@ Create a plain-text, LLM-ready snapshot of any project, send it to your AI for e
 [![macOS](https://img.shields.io/badge/platform-macOS-217DD1?logo=apple&style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
 [![Download](https://img.shields.io/badge/Download-DumpUndump.app.zip-217DD1?style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
 
-<img width="1280" height="1146" alt="Screenshot" src="https://github.com/user-attachments/assets/f48a4bc9-3efb-466d-8931-0825491e0826"/>
+<img width="1280" height="1113" alt="DumpUndump — LLM-optimized single-file project snapshot for macOS" src="https://github.com/user-attachments/assets/8e80f799-c9f2-420a-9a17-2b78bed61298"/>
 
 ## Download & Installation
 
