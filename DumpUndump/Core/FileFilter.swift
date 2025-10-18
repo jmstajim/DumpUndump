@@ -1,76 +1,68 @@
 import Foundation
 
 struct FileFilter {
-    private let include: [NSRegularExpression]
-    private let excludeName: [NSRegularExpression]
-    private let excludePath: [NSRegularExpression]
-    private let excludeDirs: Set<String>
     private let binaryExts: Set<String>
     private let maxBytes: Int
     private let skipLarge: Bool
     private let rootPrefix: String
 
-    init(root: URL, includeGlobs: String, excludeGlobs: String, excludeDirs: String, skipLargeFiles: Bool, maxSizeMB: Int, binaryExts: Set<String>? = nil) {
-        self.include = FileFilter.compile(globs: includeGlobs)
-        let split = FileFilter.compileSplit(globs: excludeGlobs)
-        self.excludeName = split.names
-        self.excludePath = split.paths
-        self.excludeDirs = Set(excludeDirs.split(separator: ",").map { $0.trimmingCharacters(in: .whitespacesAndNewlines).lowercased() }.filter { !$0.isEmpty })
+    private let includeSelections: Set<String>
+    private let excludeSelections: Set<String>
+
+    init(root: URL, skipLargeFiles: Bool, maxSizeMB: Int, binaryExts: Set<String>? = nil, selectedPaths: [String]? = nil) {
         let defaults: Set<String> = ["png","jpg","jpeg","gif","webp","pdf","zip","rar","7z","dmg","ico","icns","ttf","otf","mp3","wav","aiff","mp4","mov","avi","m4a","m4v","heic","heif","xcassets","xcuserstate","bin","so","dylib","a","o","class","jar","war","ipa"]
         self.binaryExts = binaryExts ?? defaults
         self.skipLarge = skipLargeFiles
         self.maxBytes = skipLargeFiles ? maxSizeMB * 1024 * 1024 : Int.max
         let base = root.path
         self.rootPrefix = base.hasSuffix("/") ? base : base + "/"
-    }
 
-    static func compile(globs: String) -> [NSRegularExpression] {
-        globs.split(separator: ",").map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }.filter { !$0.isEmpty }.compactMap { globToRegex($0) }
-    }
-
-    static func compileSplit(globs: String) -> (names: [NSRegularExpression], paths: [NSRegularExpression]) {
-        var names: [NSRegularExpression] = []
-        var paths: [NSRegularExpression] = []
-        for raw in globs.split(separator: ",") {
-            let p = raw.trimmingCharacters(in: .whitespacesAndNewlines)
-            if p.isEmpty { continue }
-            if let rx = globToRegex(p) {
-                if p.contains("/") || p.contains("\\") {
-                    paths.append(rx)
-                } else {
-                    names.append(rx)
-                }
+        let sel = Set(selectedPaths ?? [])
+        var inc = Set<String>()
+        var exc = Set<String>()
+        for p in sel {
+            if p.hasPrefix("!") {
+                let trimmed = String(p.dropFirst())
+                if !trimmed.isEmpty { exc.insert(trimmed) }
+            } else {
+                if !p.isEmpty { inc.insert(p) }
             }
         }
-        return (names, paths)
-    }
-
-    private static func globToRegex(_ pattern: String) -> NSRegularExpression? {
-        var s = "^"
-        for ch in pattern {
-            if ch == "*" { s += ".*" }
-            else if ch == "?" { s += "." }
-            else if ".^$+()[]{}|\\".contains(ch) { s += "\\\(ch)" }
-            else { s += String(ch) }
-        }
-        s += "$"
-        return try? NSRegularExpression(pattern: s, options: [.caseInsensitive])
-    }
-
-    func shouldSkipDirectory(_ url: URL) -> Bool {
-        excludeDirs.contains(url.lastPathComponent.lowercased())
+        self.includeSelections = inc
+        self.excludeSelections = exc
     }
 
     func basicFilePass(url: URL, size: Int?) -> Bool {
-        let name = url.lastPathComponent
         let ext = url.pathExtension.lowercased()
         if binaryExts.contains(ext) { return false }
-        if !include.isEmpty && !include.contains(where: { $0.firstMatch(in: name, options: [], range: NSRange(location: 0, length: name.utf16.count)) != nil }) { return false }
-        if !excludeName.isEmpty && excludeName.contains(where: { $0.firstMatch(in: name, options: [], range: NSRange(location: 0, length: name.utf16.count)) != nil }) { return false }
         let rel = relativePath(url)
-        if !excludePath.isEmpty && excludePath.contains(where: { $0.firstMatch(in: rel, options: [], range: NSRange(location: 0, length: rel.utf16.count)) != nil }) { return false }
+
+        if includeSelections.isEmpty { return false }
+
+        if isUnderExcludeSelection(rel) { return false }
+
+        if !isUnderIncludeSelection(rel) { return false }
+
         if skipLarge, let size = size, size > maxBytes { return false }
         return true
+    }
+
+    private func isUnderIncludeSelection(_ rel: String) -> Bool {
+        for sel in includeSelections {
+            if rel == sel { return true }
+            let s = sel.hasSuffix("/") ? sel : sel + "/"
+            if rel.hasPrefix(s) { return true }
+        }
+        return false
+    }
+
+    private func isUnderExcludeSelection(_ rel: String) -> Bool {
+        for ex in excludeSelections {
+            if rel == ex { return true }
+            let s = ex.hasSuffix("/") ? ex : ex + "/"
+            if rel.hasPrefix(s) { return true }
+        }
+        return false
     }
 
     private func relativePath(_ url: URL) -> String {
@@ -99,3 +91,4 @@ struct FileFilter {
         return Double(control) / Double(max(total,1)) < 0.30
     }
 }
+

@@ -2,77 +2,57 @@ import SwiftUI
 
 struct DumpSectionView: View {
     @AppStorage("DumpUndump.Section.Dump.isExpanded.v1") private var isExpanded: Bool = true
-    @Binding var selectedPreset: OptionsPreset
     @Binding var options: DumpOptions
     let isWorking: Bool
     let dumpReport: String
     let isGenerateDisabled: Bool
-    let applyPreset: () -> Void
     let saveOptions: () -> Void
     let resetOptions: () -> Void
     let generateDump: () -> Void
-
+    let rootFolder: URL?
+    
+    @State private var selectionSet: Set<String> = []
+    
     var body: some View {
         Section(isExpanded: $isExpanded) {
             VStack(alignment: .leading, spacing: 12) {
-                HStack {
-                    Picker("Preset", selection: $selectedPreset) {
-                        ForEach(OptionsPreset.allCases) { p in
-                            Text(p.title).tag(p)
-                        }
-                    }
-                    .pickerStyle(.menu)
-                    Button(action: applyPreset) {
-                        Image(systemName: "return.left")
-                    }
-                    .buttonStyle(.bordered)
-                    Button(role: .destructive, action: resetOptions) {
-                        Image(systemName: "arrow.counterclockwise")
-                    }
-                    .buttonStyle(.borderless)
-                }
-                HStack {
-                    Toggle(" ", isOn: $options.skipLargeFiles)
+                HStack(spacing: 12) {
+                    Toggle("", isOn: $options.skipLargeFiles)
+                        .labelsHidden()
                     Stepper(value: $options.maxSizeMB, in: 1...50) {
                         Text("Skip large files (> \(options.maxSizeMB) MB)")
                     }
-                    Spacer()
+                    Spacer(minLength: 0)
                 }
-                VStack(alignment: .leading, spacing: 6) {
-                    Text("Include files")
+                
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Folders & Files")
                         .font(.caption)
                         .foregroundStyle(.secondary)
-                    TextField(DumpOptions.default.includeGlobs, text: $options.includeGlobs)
-                        .textFieldStyle(.roundedBorder)
+                    
+                    FolderTreeView(rootURL: rootFolder, selection: $selectionSet)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .padding(8)
+                        .background(
+                            RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                .fill(Color.secondary.opacity(0.06))
+                        )
                 }
-                VStack(alignment: .leading, spacing: 6) {
-                    Text("Exclude files")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                    TextField(DumpOptions.default.excludeGlobs, text: $options.excludeGlobs)
-                        .textFieldStyle(.roundedBorder)
-                }
-                VStack(alignment: .leading, spacing: 6) {
-                    Text("Exclude folders")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                    TextField(DumpOptions.default.excludeDirs, text: $options.excludeDirs)
-                        .textFieldStyle(.roundedBorder)
-                }
+                
                 Button(action: generateDump) {
-                    HStack {
+                    HStack(spacing: 8) {
                         if isWorking {
                             ProgressView().controlSize(.small)
                         }
-                        Label("Dump", systemImage: "shippingbox.fill")
+                        Label("Dump", systemImage: "shippingbox.fill").labelStyle(.titleAndIcon)
                     }
-                    .frame(maxWidth: .infinity, minHeight: 24)
+                    .frame(maxWidth: .infinity, minHeight: 28)
                 }
                 .buttonStyle(.borderedProminent)
                 .disabled(isGenerateDisabled)
+                
                 if dumpReport.isEmpty {
-                    Text("")
-                        .font(.footnote)
+                    Text("").font(.footnote)
                 } else {
                     Text(dumpReport)
                         .font(.footnote)
@@ -81,6 +61,17 @@ struct DumpSectionView: View {
             }
             .formCard()
             .listRowInsets(EdgeInsets(top: 6, leading: 8, bottom: 6, trailing: 8))
+            .task {
+                selectionSet = Set(options.selectedPaths ?? [])
+            }
+            .onChange(of: options) { _, newValue in
+                selectionSet = Set(newValue.selectedPaths ?? [])
+            }
+            .onChange(of: selectionSet) { _, newValue in
+                let arr = Array(newValue).sorted()
+                options.selectedPaths = arr.isEmpty ? nil : arr
+                saveOptions()
+            }
         } header: {
             Label("Dump into a single text", systemImage: "shippingbox.fill")
                 .font(.headline)
@@ -89,8 +80,6 @@ struct DumpSectionView: View {
 }
 
 #Preview {
-    @Previewable @State var selectedPreset = OptionsPreset.default
-    @Previewable @State var options = DumpOptions.init(includeGlobs: "", excludeGlobs: "", excludeDirs: "", skipLargeFiles: false, maxSizeMB: 5)
-
-    DumpSectionView(selectedPreset: $selectedPreset, options: $options, isWorking: false, dumpReport: "", isGenerateDisabled: true, applyPreset: {}, saveOptions: {}, resetOptions: {}, generateDump: {})
+    @Previewable @State var options = DumpOptions(skipLargeFiles: false, maxSizeMB: 5)
+    DumpSectionView(options: $options, isWorking: false, dumpReport: "", isGenerateDisabled: true, saveOptions: {}, resetOptions: {}, generateDump: {}, rootFolder: nil)
 }

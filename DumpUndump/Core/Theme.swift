@@ -16,7 +16,7 @@ enum Theme {
 }
 
 struct FormCard: ViewModifier {
-    var padding: CGFloat = 14
+    var padding: CGFloat = 12
     func body(content: Content) -> some View {
         let shape = RoundedRectangle(cornerRadius: 14, style: .continuous)
 

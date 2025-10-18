@@ -1,18 +1,13 @@
 import Foundation
 
 struct DumpOptions: Codable, Equatable {
-    var includeGlobs: String
-    var excludeGlobs: String
-    var excludeDirs: String
     var skipLargeFiles: Bool
     var maxSizeMB: Int
+    var selectedPaths: [String]? = nil
 
     static let `default` = DumpOptions(
-        includeGlobs: "*.swift,*.h,*.m,*.mm,*.metal,*.plist,*.xib,*.storyboard,*.strings,*.stringsdict,*.xcconfig,*.entitlements,*.pbxproj,Package.swift,*.kt,*.kts,*.java,*.gradle,*.gradle.kts,*.xml,*.pro,*.properties,*.cpp,*.cc,*.c,*.hpp,*.hh,*.hxx,*.uplugin,*.uproject,*.Build.cs,*.Target.cs,*.ini,*.cs,*.shader,*.cginc,*.compute,*.hlsl,*.js,*.jsx,*.mjs,*.cjs,*.ts,*.tsx,*.json,*.yml,*.yaml,*.html,*.css,*.scss,*.sass,*.svelte,*.vue,*.astro,*.toml,*.cfg,*.env,*.md,*.txt,*.sh,*.bat,*.ps1,*.py,*.rb,*.go,*.rs,*.sql,Dockerfile,docker-compose*.yml",
-        excludeGlobs: "*.min.js,*.lock,*.map,*.bundle.js,*.bundle.css,*.apk,*.aab,*.aar,*.jar,*.so,*.app,*.xcarchive,*.ipa,*.dSYM,*.bcsymbolmap,*.uasset,*.umap,*.pak",
-        excludeDirs: ".git,DerivedData,build,.build,Build,Pods,Carthage,NodeModules,node_modules,.swiftpm,.xcworkspace,xcuserdata,.idea,.gradle,.gitlab,dist,out,.venv,venv,.vscode,.vs,.dccache,.cache,.next,.nuxt,Binaries,Intermediate,Saved,DerivedDataCache,Library,Temp,Obj,Logs,__pycache__,.mypy_cache,.pytest_cache,.dart_tool,ios/Pods,ios/build,android/.gradle,android/build,coverage",
         skipLargeFiles: true,
-        maxSizeMB: 10
+        maxSizeMB: 5
     )
 }
 

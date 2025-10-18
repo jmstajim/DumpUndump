@@ -2,7 +2,6 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject private var vm = MainViewModel()
-    @State private var selectedPreset: OptionsPreset = .default
     @AppStorage("DumpUndump.ChatPrompt.v1") private var prompt: String = ""
     @State private var dumpLines: Int = 0
     @State private var dumpBytes: Int = 0
@@ -18,15 +17,14 @@ struct MainView: View {
                     onPick: vm.pickRootFolder
                 )
                 DumpSectionView(
-                    selectedPreset: $selectedPreset,
                     options: $vm.options,
                     isWorking: vm.isWorking,
                     dumpReport: vm.dumpReport,
                     isGenerateDisabled: vm.rootFolder == nil || vm.isWorking,
-                    applyPreset: { vm.options = selectedPreset.options(base: vm.options) },
                     saveOptions: vm.saveOptions,
                     resetOptions: vm.resetOptions,
-                    generateDump: vm.generateDump
+                    generateDump: vm.generateDump,
+                    rootFolder: vm.rootFolder
                 )
                 UndumpSectionView(
                     dryRun: $vm.dryRun,

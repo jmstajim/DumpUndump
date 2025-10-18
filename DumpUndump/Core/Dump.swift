@@ -21,7 +21,12 @@ private func countLines(_ data: Data) -> Int {
 
 enum Dump {
     static func dump(root: URL, options: DumpOptions) throws -> DumpResult {
-        let filter = FileFilter(root: root, includeGlobs: options.includeGlobs, excludeGlobs: options.excludeGlobs, excludeDirs: options.excludeDirs, skipLargeFiles: options.skipLargeFiles, maxSizeMB: options.maxSizeMB)
+        let filter = FileFilter(
+            root: root,
+            skipLargeFiles: options.skipLargeFiles,
+            maxSizeMB: options.maxSizeMB,
+            selectedPaths: options.selectedPaths
+        )
         let fm = FileManager.default
         guard let en = fm.enumerator(at: root, includingPropertiesForKeys: [.isDirectoryKey, .isSymbolicLinkKey, .fileSizeKey], options: [.skipsHiddenFiles, .skipsPackageDescendants]) else {
             throw NSError(domain: "Dump", code: 1, userInfo: [NSLocalizedDescriptionKey: "Failed to list files in \(root.path)"])
@@ -29,12 +34,6 @@ enum Dump {
         var files: [URL] = []
         for case let url as URL in en {
             if (try? url.resourceValues(forKeys: [.isSymbolicLinkKey]).isSymbolicLink) == true { continue }
-            if (try? url.resourceValues(forKeys: [.isDirectoryKey]).isDirectory) == true {
-                if filter.shouldSkipDirectory(url) {
-                    (en as AnyObject).skipDescendants?()
-                    continue
-                }
-            }
             var isDir: ObjCBool = false
             guard fm.fileExists(atPath: url.path, isDirectory: &isDir), !isDir.boolValue else { continue }
             let size = (try? url.resourceValues(forKeys: [.fileSizeKey]).fileSize)
@@ -66,7 +65,7 @@ enum Dump {
             ```
             <<<END FILE #\(index)>>>
             """
-            let tocLine = "\(col(index, 7))  \(col(data.count, 8))  \(col(linesCount, 8))  \(rel)"
+            let tocLine = "\(col(index, 7))  \(col(data.count, 8))  \(col(linesCount, 8))  \(col(rel, 0))"
             synchronizedAppend(idx: index, section: section, toc: tocLine, pairSections: &pairSections, pairToc: &pairToc)
         }
 
