@@ -48,9 +48,9 @@ struct MainView: View {
             .listStyle(.sidebar)
             .scrollContentBackground(.hidden)
             .background(Theme.windowBackground)
-            .headerProminence(.increased)
+            .headerProminence(.standard)
             .navigationTitle("DumpUndump")
-            .frame(minWidth: 260)
+            .frame(minWidth: 220)
         } detail: {
             DumpDetailView(
                 dumpText: $vm.dumpText,
@@ -67,10 +67,11 @@ struct MainView: View {
                     vm.dumpText = ""
                 }
             )
-            .frame(minWidth: 140)
+            .frame(minWidth: 120)
         }
         .frame(minHeight: 100)
         .tint(Theme.accent)
+        .controlSize(.small)
         .alert(item: $vm.errorAlert) { err in
             Alert(title: Text("Error"), message: Text(err.message), dismissButton: .default(Text("OK")))
         }

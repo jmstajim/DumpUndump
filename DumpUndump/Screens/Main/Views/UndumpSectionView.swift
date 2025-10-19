@@ -18,56 +18,68 @@ struct UndumpSectionView: View {
 
     var body: some View {
         Section(isExpanded: $isExpanded) {
-            VStack(alignment: .leading, spacing: 12) {
+            VStack(alignment: .leading, spacing: 8) {
                 Toggle("Dry run (no writes)", isOn: $dryRun)
                 Toggle("Create *.bak backups", isOn: $makeBackups)
-                Toggle("Auto‑reload dump when file changes", isOn: $autoLoadDump)
-                Toggle("Auto‑apply dump after loading", isOn: $autoApply)
-                VStack(alignment: .leading, spacing: 6) {
+                Toggle("Auto-reload dump when file changes", isOn: $autoLoadDump)
+                Toggle("Auto-apply dump after loading", isOn: $autoApply)
+                VStack(alignment: .leading, spacing: 4) {
                     Text("Dump file path")
                         .font(.caption)
                         .foregroundStyle(.secondary)
-                    HStack {
+                    HStack(spacing: 6) {
                         Image(systemName: "document")
-                            .imageScale(.large)
+                            .imageScale(.small)
                             .foregroundStyle(.secondary)
                         Text(selectedDumpPath)
                             .lineLimit(1)
                             .truncationMode(.middle)
-                        Spacer()
+                        Spacer(minLength: 0)
                         Button(action: pickDumpFile) {
                             Text("Choose…")
                         }
                         .buttonStyle(.bordered)
-                        if hasSelectedDump {
-                            Button(role: .destructive, action: clearSelectedDump) {
-                                Image(systemName: "xmark")
-                            }
-                            .buttonStyle(.borderless)
-                        }
                     }
-                    HStack {
+                    HStack(spacing: 6) {
                         Button(action: loadDumpFromFile) {
-                            Label("Load file", systemImage: "doc.fill.badge.plus")
-                                .frame(maxWidth: .infinity, minHeight: 24)
-                            
+                            Label {
+                                Text("Load file")
+                            } icon: {
+                                Image(systemName: "doc.fill.badge.plus")
+                                    .symbolRenderingMode(.monochrome)
+                                    .foregroundStyle(Theme.accent)
+                            }
+                            .frame(maxWidth: .infinity, minHeight: 22)
                         }
+                        .buttonStyle(.bordered)
                         Button(action: loadFromSelected) {
-                            Label("Load from path", systemImage: "arrow.down.document.fill")
-                                .frame(maxWidth: .infinity, minHeight: 24)
-
+                            Label {
+                                Text("Load from path")
+                            } icon: {
+                                Image(systemName: "arrow.down.document.fill")
+                                    .symbolRenderingMode(.monochrome)
+                                    .foregroundStyle(Theme.accent)
+                            }
+                            .frame(maxWidth: .infinity, minHeight: 22)
                         }
+                        .buttonStyle(.bordered)
                         .disabled(!hasSelectedDump)
                     }
-                    VStack(alignment: .leading, spacing: 8) {
+                    VStack(alignment: .leading, spacing: 6) {
                         Button(action: applyDumpToFolder) {
-                                Label("Undump", systemImage: "arrow.trianglehead.2.clockwise.rotate.90.circle.fill")
-                            .frame(maxWidth: .infinity, minHeight: 24)
+                            Label {
+                                Text("Undump")
+                            } icon: {
+                                Image(systemName: "arrow.trianglehead.2.clockwise.rotate.90.circle.fill")
+                                    .symbolRenderingMode(.monochrome)
+                                    .foregroundStyle(Theme.accent)
+                            }
+                            .frame(maxWidth: .infinity, minHeight: 22)
                         }
-                        .buttonStyle(.borderedProminent)
+                        .buttonStyle(.bordered)
                         .disabled(isApplyDisabled)
                     }
-                    .padding(.top, 4)
+                    .padding(.top, 2)
                 }
                 if undumpReport.isEmpty {
                     Text("")
@@ -79,7 +91,7 @@ struct UndumpSectionView: View {
                 }
             }
             .formCard()
-            .listRowInsets(EdgeInsets(top: 6, leading: 8, bottom: 6, trailing: 8))
+            .listRowInsets(EdgeInsets(top: 4, leading: 6, bottom: 4, trailing: 6))
         } header: {
             Label("Undump and apply", systemImage: "arrow.trianglehead.2.clockwise.rotate.90.circle.fill")
                 .font(.headline)

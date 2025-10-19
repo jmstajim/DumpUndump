@@ -19,8 +19,8 @@ struct HighlightingTextView: NSViewRepresentable {
         tv.isSelectable = true
         tv.usesFontPanel = false
         tv.usesFindPanel = true
-        tv.textContainerInset = NSSize(width: 8, height: 8)
-        tv.font = NSFont.monospacedSystemFont(ofSize: 13, weight: .regular)
+        tv.textContainerInset = NSSize(width: 4, height: 4)
+        tv.font = NSFont.monospacedSystemFont(ofSize: 12, weight: .regular)
         tv.drawsBackground = true
         tv.backgroundColor = .textBackgroundColor
         tv.textColor = .labelColor

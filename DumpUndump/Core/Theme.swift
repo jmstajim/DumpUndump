@@ -41,11 +41,6 @@ struct FormCard: ViewModifier {
                         lineWidth: 1
                     )
             )
-            .overlay(
-                shape
-                    .stroke(Color.black.opacity(0.08), lineWidth: 0.5)
-                    .blendMode(.overlay)
-            )
     }
 }
 

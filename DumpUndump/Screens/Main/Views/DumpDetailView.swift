@@ -12,7 +12,7 @@ struct DumpDetailView: View {
     let onClear: () -> Void
 
     var body: some View {
-        VStack(spacing: 8) {
+        VStack(spacing: 4) {
             HighlightingTextView(text: $dumpText)
         }
         .toolbar {
@@ -20,30 +20,39 @@ struct DumpDetailView: View {
                 Button(action: onCopy) {
                     Label("Copy", systemImage: "clipboard")
                 }
+                .labelStyle(.iconOnly)
                 .disabled(dumpText.isEmpty)
+
                 Button(action: onCopyFile) {
-                    Label(" Copy as File", systemImage: "doc.on.doc.fill")
+                    Label("Copy as File", systemImage: "doc.on.doc.fill")
                 }
+                .labelStyle(.iconOnly)
                 .disabled(dumpText.isEmpty)
+
                 Button(action: onSave) {
                     Label("Save to File…", systemImage: "square.and.arrow.down")
                 }
+                .labelStyle(.iconOnly)
                 .disabled(dumpText.isEmpty)
+
                 if isWorking {
-                    ProgressView().controlSize(.small)
+                    Button(action: {}) {
+                        ProgressView().controlSize(.small)
+                    }
+                    .labelStyle(.iconOnly)
                 }
             }
             ToolbarItemGroup(placement: .status) {
-                Text("Dump contents   ≈ \(tokens) Tok  •  \(lines) Ln  •  \(sizeString)")
-                    .font(.caption)
-                    .padding(.horizontal, 16)
+                Text("≈ \(tokens) tok · \(lines) ln · \(sizeString)")
+                    .font(.caption2)
+                    .padding(.horizontal, 8)
             }
             ToolbarItemGroup(placement: .primaryAction) {
                 Button(role: .destructive, action: onClear) {
                     Label("Clear", systemImage: "trash")
                 }
+                .labelStyle(.iconOnly)
                 .disabled(dumpText.isEmpty)
-                .buttonStyle(.bordered)
             }
         }
     }

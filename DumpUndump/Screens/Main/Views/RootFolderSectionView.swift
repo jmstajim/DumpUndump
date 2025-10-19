@@ -7,26 +7,26 @@ struct RootFolderSectionView: View {
 
     var body: some View {
         Section(isExpanded: $isExpanded) {
-            VStack(alignment: .leading, spacing: 8) {
-                HStack(alignment: .top) {
+            VStack(alignment: .leading, spacing: 6) {
+                HStack(alignment: .center, spacing: 8) {
                     Image(systemName: "folder")
-                        .imageScale(.large)
+                        .imageScale(.small)
                         .foregroundStyle(.secondary)
-                    VStack(alignment: .leading, spacing: 6) {
+                    VStack(alignment: .leading, spacing: 4) {
                         Text(path)
-                            .font(.callout)
+                            .font(.caption2)
                             .lineLimit(1)
                             .truncationMode(.middle)
                         Button(action: onPick) {
                             Text("Choose folder…")
                         }
-                        .buttonStyle(.borderedProminent)
+                        .buttonStyle(.bordered)
                     }
-                    Spacer()
+                    Spacer(minLength: 0)
                 }
             }
             .formCard()
-            .listRowInsets(EdgeInsets(top: 6, leading: 8, bottom: 6, trailing: 8))
+            .listRowInsets(EdgeInsets(top: 4, leading: 6, bottom: 4, trailing: 6))
         } header: {
             Label("Project Folder", systemImage: "folder.fill.badge.gearshape")
                 .font(.headline)

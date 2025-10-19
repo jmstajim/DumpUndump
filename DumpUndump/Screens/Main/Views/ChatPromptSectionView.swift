@@ -8,15 +8,12 @@ struct ChatPromptSectionView: View {
 
     var body: some View {
         Section(isExpanded: $isExpanded) {
-            VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .leading, spacing: 6) {
                 TextEditor(text: $prompt)
-                    .font(.system(.body, design: .monospaced))
-                    .frame(minHeight: 140)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color.gray.opacity(0.25), lineWidth: 1)
-                    )
+                    .font(.system(size: 12, weight: .regular, design: .monospaced))
+                    .frame(minHeight: 96)
                     .scrollDisabled(true)
+                    .scrollContentBackground(.hidden)
             }
             .formCard()
             .task {
@@ -27,9 +24,9 @@ struct ChatPromptSectionView: View {
                     }
                 }
             }
-            .listRowInsets(EdgeInsets(top: 6, leading: 8, bottom: 12, trailing: 8))
+            .listRowInsets(EdgeInsets(top: 4, leading: 6, bottom: 4, trailing: 6))
         } header: {
-            HStack {
+            HStack(spacing: 8) {
                 Label("AI Prompt", systemImage: "text.badge.star")
                     .font(.headline)
                 Button("Copy", systemImage: "clipboard", action: onCopy)

@@ -76,7 +76,6 @@ enum Dump {
 
         var out = "# \(root.lastPathComponent) FOLDER DUMP\n"
         out += "Generated: \(dateStr)\n"
-        out += "FILES: \(files.count)\n"
         out += "EOL: lf\n"
         out += "ENC_DEFAULT: utf8\n"
         out += "NFC: true\n"

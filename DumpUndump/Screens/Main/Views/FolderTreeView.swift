@@ -54,7 +54,7 @@ struct FolderTreeView: View {
         let key = layoutKey
         return Group {
             if let _ = rootURL {
-                VStack(alignment: .leading, spacing: 2) {
+                VStack(alignment: .leading, spacing: 1) {
                     ForEach(visibleNodes(), id: \.node.id) { item in
                         NodeRow(
                             level: item.level,
@@ -74,8 +74,8 @@ struct FolderTreeView: View {
                         )
                     }
                 }
-                .padding(.vertical, 2)
-                .padding(.leading, 2)
+                .padding(.vertical, 1)
+                .padding(.leading, 1)
                 .fixedSize(horizontal: false, vertical: true)
             } else {
                 Text("Select a project folder to choose files.")
@@ -479,8 +479,8 @@ struct FolderTreeView: View {
         let onRowTap: () -> Void
 
         var body: some View {
-            HStack(spacing: 6) {
-                Rectangle().fill(.clear).frame(width: CGFloat(level) * 8, height: 1)
+            HStack(spacing: 4) {
+                Rectangle().fill(.clear).frame(width: CGFloat(level) * 6, height: 1)
 
                 Group {
                     if node.isDir && hasChildren {
@@ -497,16 +497,18 @@ struct FolderTreeView: View {
                 .buttonStyle(.plain)
 
                 Image(systemName: node.isDir ? "folder" : "doc.text")
+                    .imageScale(.small)
                     .foregroundStyle(.secondary)
 
                 Text(node.name)
+                    .font(.system(size: 12, weight: .regular, design: .monospaced))
                     .lineLimit(1)
                     .truncationMode(.middle)
 
                 Spacer(minLength: 0)
 
                 if node.isDir && state == .mixed {
-                    Text("partial")
+                    Image(systemName: "minus")
                         .font(.caption2)
                         .foregroundStyle(.secondary)
                 }
@@ -514,7 +516,7 @@ struct FolderTreeView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .contentShape(Rectangle())
             .onTapGesture { onRowTap() }
-            .padding(.vertical, 3)
+            .padding(.vertical, 2)
         }
 
         @ViewBuilder private var disclosure: some View {

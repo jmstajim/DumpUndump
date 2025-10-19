@@ -15,40 +15,35 @@ struct DumpSectionView: View {
     
     var body: some View {
         Section(isExpanded: $isExpanded) {
-            VStack(alignment: .leading, spacing: 12) {
-                HStack(spacing: 12) {
+            VStack(alignment: .leading, spacing: 8) {
+                HStack(spacing: 8) {
                     Toggle("", isOn: $options.skipLargeFiles)
                         .labelsHidden()
                     Stepper(value: $options.maxSizeMB, in: 1...50) {
-                        Text("Skip large files (> \(options.maxSizeMB) MB)")
+                        Text("Skip > \(options.maxSizeMB) MB")
                     }
                     Spacer(minLength: 0)
                 }
                 
-                VStack(alignment: .leading, spacing: 8) {
+                VStack(alignment: .leading, spacing: 6) {
                     Text("Folders & Files")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     
                     FolderTreeView(rootURL: rootFolder, selection: $selectionSet)
                         .fixedSize(horizontal: false, vertical: true)
-                        .padding(8)
-                        .background(
-                            RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                .fill(Color.secondary.opacity(0.06))
-                        )
                 }
                 
                 Button(action: generateDump) {
-                    HStack(spacing: 8) {
+                    HStack(spacing: 6) {
                         if isWorking {
                             ProgressView().controlSize(.small)
                         }
                         Label("Dump", systemImage: "shippingbox.fill").labelStyle(.titleAndIcon)
                     }
-                    .frame(maxWidth: .infinity, minHeight: 28)
+                    .frame(maxWidth: .infinity, minHeight: 24)
                 }
-                .buttonStyle(.borderedProminent)
+                .buttonStyle(.bordered)
                 .disabled(isGenerateDisabled)
                 
                 if dumpReport.isEmpty {
@@ -60,7 +55,7 @@ struct DumpSectionView: View {
                 }
             }
             .formCard()
-            .listRowInsets(EdgeInsets(top: 6, leading: 8, bottom: 6, trailing: 8))
+            .listRowInsets(EdgeInsets(top: 4, leading: 6, bottom: 4, trailing: 6))
             .task {
                 selectionSet = Set(options.selectedPaths ?? [])
             }
