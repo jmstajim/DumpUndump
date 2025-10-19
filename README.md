@@ -7,7 +7,7 @@ Create a plain-text, LLM-ready snapshot of any project, send it to your AI for e
 [![macOS](https://img.shields.io/badge/platform-macOS-217DD1?logo=apple&style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
 [![Download](https://img.shields.io/badge/Download-DumpUndump.app.zip-217DD1?style=flat-square)](https://github.com/jmstajim/DumpUndump/releases/latest/download/DumpUndump.app.zip)
 
-<img width="1280" height="1113" alt="DumpUndump — LLM-optimized single-file project snapshot for macOS" src="https://github.com/user-attachments/assets/8e80f799-c9f2-420a-9a17-2b78bed61298"/>
+<img width="1280" height="1142" alt="Screenshot 2025-10-19 at 19 22 13 Large" src="https://github.com/user-attachments/assets/80548e17-1acf-46de-a0bb-1b62c0047fdb" />
 
 ## Download & Installation
 
@@ -24,10 +24,7 @@ Update: download the new DumpUndump.app.zip, extract, and replace the app in App
 ## Why you’ll like it:
 
 - 🤖 AI-friendly layout — stable section markers & deterministic structure
-- 📏 Precomputed stats — per-file bytes/lines/hashes + a manifest & TOC
-- 🎯 Flexible include/exclude (globs) + folder ignores
 - ⚡ Auto-reload & Auto-apply when the dump file changes
-- 🧩 One-click presets for different stacks
 - ✂️ Skips large/binary files
 - 🧪 Dry-run mode + optional .bak backups
 
