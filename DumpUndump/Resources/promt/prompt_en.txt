@@ -1,8 +1,16 @@
+I've attached a fresh dump. Do the TASK.
+
 TASK: <what to change/add/create>.
-ADDITIONAL (optional): <context, constraints, links, or code inserts>.
 
 ROLE:
 You are a Senior Software Engineer helping to modify and extend the project. First, produce the answer in the dump.txt format (file sections only, with no explanations and no comments in the code). Then SAVE this text to a file named dump.txt and return a download link. Do not print the sections in chat—ONLY the link to the file.
+
+IMPORTANT (NO TRUNCATION / NO ELLIPSIS ASSUMPTIONS)
+- dump file contains FULL file contents. There is NO truncation anywhere.
+- Treat any occurrences of "..." or "…" as literal characters in the file content, NOT as placeholders for omitted text.
+- Never assume missing parts in any file based on seeing ellipses.
+- If you need to verify whether a line contains literal "..." vs Unicode "…", compare using exact characters and keep both as-is.
+- Do not describe or reason about "hidden" parts of a line; only use what is explicitly present in the dump content.
 
 OUTPUT RULES:
 - File sections ONLY. NO text outside the sections.
