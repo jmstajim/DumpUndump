@@ -46,7 +46,7 @@ enum Dump {
 
         var pairSections: [(Int, String)] = []
         var pairToc: [(Int, String)] = []
-        let headerToc = "\(col("INDEX", 7))  \(col("BYTES", 8))  \(col("LINES", 8))  RELATIVE_PATH"
+        let headerToc = "\(col("INDEX", 7))  \(col("LINES", 8))  RELATIVE_PATH"
 
         DispatchQueue.concurrentPerform(iterations: files.count) { idx in
             let index = idx + 1
@@ -65,7 +65,7 @@ enum Dump {
             ```
             <<<END FILE #\(index)>>>
             """
-            let tocLine = "\(col(index, 7))  \(col(data.count, 8))  \(col(linesCount, 8))  \(col(rel, 0))"
+            let tocLine = "\(col(index, 7))  \(col(linesCount, 8))  \(col(rel, 0))"
             synchronizedAppend(idx: index, section: section, toc: tocLine, pairSections: &pairSections, pairToc: &pairToc)
         }
 
@@ -101,3 +101,4 @@ func isoNow() -> String {
     f.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
     return f.string(from: Date())
 }
+
