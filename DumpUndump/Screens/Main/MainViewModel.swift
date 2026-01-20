@@ -179,7 +179,7 @@ final class MainViewModel: ObservableObject {
             do {
                 let report = try await self.undump.undump(text: text, toRoot: root, dryRun: dryRun, makeBackups: makeBackups)
                 await MainActor.run {
-                    self.undumpReport = report.summary
+                    self.undumpReport = Self.formatUndumpReport(report)
                     self.isWorking = false
                 }
             } catch {
@@ -225,6 +225,35 @@ final class MainViewModel: ObservableObject {
             errorAlert = AppErrorAlert(message: error.localizedDescription)
         }
     }
+    private static func formatUndumpReport(_ report: UndumpReport) -> String {
+        var lines: [String] = []
+        if !report.summary.isEmpty {
+            lines.append(report.summary)
+        }
+
+        if !report.failed.isEmpty {
+            lines.append("Failed paths:")
+            for p in report.failed.prefix(20) {
+                lines.append("• \(p)")
+            }
+            if report.failed.count > 20 {
+                lines.append("• …and \(report.failed.count - 20) more")
+            }
+        }
+
+        if !report.issues.isEmpty {
+            lines.append("Issues:")
+            for issue in report.issues.prefix(20) {
+                lines.append("• \(issue.path): \(issue.message)")
+            }
+            if report.issues.count > 20 {
+                lines.append("• …and \(report.issues.count - 20) more")
+            }
+        }
+
+        return lines.joined(separator: "\n")
+    }
+
 }
 
 struct AppErrorAlert: Identifiable { let id = UUID(); let message: String }

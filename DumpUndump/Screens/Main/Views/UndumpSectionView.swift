@@ -88,6 +88,8 @@ struct UndumpSectionView: View {
                     Text(undumpReport)
                         .font(.footnote)
                         .foregroundStyle(.secondary)
+                        .textSelection(.enabled)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
             }
             .formCard()
@@ -104,5 +106,25 @@ struct UndumpSectionView: View {
     @Previewable @State var makeBackups = false
     @Previewable @State var autoLoadDump = true
     @Previewable @State var autoApply = true
-    UndumpSectionView(dryRun: $dryRun, makeBackups: $makeBackups, autoLoadDump: $autoLoadDump, autoApply: $autoApply, selectedDumpPath: "/Users/me/file.txt", hasSelectedDump: true, loadFromSelected: {}, pickDumpFile: {}, clearSelectedDump: {}, loadDumpFromFile: {}, applyDumpToFolder: {}, isApplyDisabled: false, undumpReport: "")
+    UndumpSectionView(
+        dryRun: $dryRun,
+        makeBackups: $makeBackups,
+        autoLoadDump: $autoLoadDump,
+        autoApply: $autoApply,
+        selectedDumpPath: "/tmp/dump.txt",
+        hasSelectedDump: true,
+        loadFromSelected: {},
+        pickDumpFile: {},
+        clearSelectedDump: {},
+        loadDumpFromFile: {},
+        applyDumpToFolder: {},
+        isApplyDisabled: false,
+        undumpReport: """
+Created: 1 • Updated: 2 • Skipped: 3 • Failed: 1
+Failed paths:
+• Sources/App/Foo.swift
+Issues:
+• Sources/App/Foo.swift: Context mismatch at line 10
+"""
+    )
 }
